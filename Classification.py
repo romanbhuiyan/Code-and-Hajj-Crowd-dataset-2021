@@ -36,18 +36,18 @@ LR = 1e-3
 #     elif word_label == 'VERY_HIGH':
 #         return [0, 0]
 
-def label_img(img):
-    word_label = img.split('_')[0]
-    if word_label == 'HIGH':
-        return [0, 0, 0, 1, 0]  
-    elif word_label == 'LOW':
-        return [0, 1, 0, 0, 0] 
-    elif word_label == 'VHIGH':
-        return [0, 0, 0, 0, 1]  
-    elif word_label == 'MEDIUM':
-        return [0, 0, 1, 0, 0]  
-    elif word_label == 'VLOW':
-        return [1, 0, 0, 0, 0] 
+# def label_img(img):
+#     word_label = img.split('_')[0]
+#     if word_label == 'HIGH':
+#         return [0, 0, 0, 1, 0]  
+#     elif word_label == 'LOW':
+#         return [0, 1, 0, 0, 0] 
+#     elif word_label == 'VHIGH':
+#         return [0, 0, 0, 0, 1]  
+#     elif word_label == 'MEDIUM':
+#         return [0, 0, 1, 0, 0]  
+#     elif word_label == 'VLOW':
+#         return [1, 0, 0, 0, 0] 
 
 def create_train_data():
     train_data = []
@@ -81,15 +81,15 @@ def process_test_data():
         if "DS_Store" not in path:
             img_num = img.split('_')[1]  # images are formatted 'HIGH_2', 'LOW_56'..
 
-            # PIL LIBRARY instead of cv2
-            img = Image.open(path)
-            img = img.convert('L')
-            img = img.resize((IMG_SIZE, IMG_SIZE), Image.ANTIALIAS)
+#             # PIL LIBRARY instead of cv2
+#             img = Image.open(path)
+#             img = img.convert('L')
+#             img = img.resize((IMG_SIZE, IMG_SIZE), Image.ANTIALIAS)
 
-            test_data.append([np.array(img), img_num])
-    shuffle(test_data)
-    np.save('test_data.npy', test_data)
-    return test_data
+#             test_data.append([np.array(img), img_num])
+#     shuffle(test_data)
+#     np.save('test_data.npy', test_data)
+#     return test_data
 
 ####### Define CNN (with layers)
 
